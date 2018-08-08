@@ -1,12 +1,12 @@
 <template>
     <div>
-        <b-container fluid class="projects-main">
+        <b-container fluid class="polls-main">
         <b-row>
         <b-col lg md-12>
-            <ProjectsLeftPart></ProjectsLeftPart>
+            <QuestionsLeftPart></QuestionsLeftPart>
         </b-col>
         <b-col lg md-12>
-            <ProjectsRightPart></ProjectsRightPart>
+            <QuestionsRightPart></QuestionsRightPart>
         </b-col>
         </b-row>
         </b-container>
@@ -15,24 +15,24 @@
 </template>
 
 <script>
-    import ProjectsLeftPart from './ProjectsLeftPart';
-    import ProjectsRightPart from './ProjectsRightPart';
+    import QuestionsLeftPart from './QuestionsLeftPart';
+    import QuestionsRightPart from './QuestionsRightPart';
     export default {
         components:{
-            ProjectsLeftPart,
-            ProjectsRightPart
+            QuestionsLeftPart,
+            QuestionsRightPart
         }
     }
 </script>
 
 <style>
-    .projects-main {
+    .questions-main {
         width: 100%;
         display: flex;
         justify-content: flex-start;
 
     }
-    .projects-part {
+    .questions-part {
         margin-right: 10px;
         background: white;
         padding: 15px;
