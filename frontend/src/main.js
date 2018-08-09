@@ -4,6 +4,7 @@ import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import VueRouter from 'vue-router'
 import Routes from './routers/router';
+import store from './store/index'
 
 Vue.use(VueRouter)
 //add bootstrap grid
@@ -16,5 +17,6 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 });

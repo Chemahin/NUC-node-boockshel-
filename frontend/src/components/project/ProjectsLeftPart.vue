@@ -1,9 +1,18 @@
 <template>
     <div class="projects-part">
-        <div class="title">
-            Существующие проекты
+        <div class="containrer-fluid title">
+            <div class="row search-wrap">
+                <div class="col-xl-6 col-lg-12">
+                    Существующие проекты
+                </div>
+                <div class="col-xl-6 col-lg-12 search">
+                    <input type="text" class="form-control " id="search" placeholder="Поиск проекта"> 
+                    <img src="../../assets/search-icon.png" alt="search-icon">
+                </div>
+            </div>
         </div>
-        <div v-for="project in projects" class="project-item card">
+        
+        <div v-for="project in resultsProjectList" class="project-item card">
             <div class="card-body">
                 <h2 class="card-title breadcrumb">{{ project.name }}</h2>
                 <div class="card-text">
@@ -30,69 +39,18 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                projects:[
-                    {
-                    name: "Имя проектa № 1",
-                    createdData: "22.02.2011",
-                    createdPersonName: "Виктор Резник",
-                    addedData: "04.08.2016",
-                    addedPersonName: "Евгения Беляева",
-                    polls: [
-                        "poll #1",
-                        "poll #2",
-                        "poll #3",
-                        "poll #4",
-                        "poll #5",
-                        "poll #6",
-                        "poll #7"
-                    ]
-                    },
-                    {
-                        name: "Имя проектa № 2",
-                        createdData: "11.01.2018",
-                        createdPersonName: "Виктор Вальдес",
-                        addedData: "14.03.2018",
-                        addedPersonName: "Стивен Джерард",
-                        polls: [
-                            "poll #1",
-                            "poll #2",
-                            "poll #3",
-                        ]
-                    },
-                    {
-                        name: "Имя проекта № 3",
-                        createdData: "11.12.2017",
-                        createdPersonName: "Еден Азар",
-                        addedData: "12.12.2017",
-                        addedPersonName: "Еден Азар",
-                        polls: [
-                            "poll #1",
-                            "poll #2"
-                        ]
-                    },
-                    {
-                        name: "Имя проекта № 4",
-                        createdData: "25.06.2017",
-                        createdPersonName: "Мухамед Салах",
-                        addedData: "04.08.2017",
-                        addedPersonName: "Садио Мане",
-                        polls: [
-                            "poll #1",
-                            "poll #2",
-                            "poll #3",
-                            "poll #4",
-                            "poll #5",
-                            "poll #6"
-                        ]
-                    }
-                ] 
-            }
-        }
-    
+import { mapGetters} from 'vuex';
+
+export default {
+    mounted() {
+        this.$store.dispatch('getProjectListAction')
+    },
+    computed: {
+        ...mapGetters([
+            'resultsProjectList'
+        ])
     }
+}
 
 </script>
 
@@ -139,4 +97,19 @@
         font-size: 15px;
         border-radius: 3px;
     }
+    .search-wrap {
+        width: 100%;
+    }
+    .search{
+        display: flex;
+        height: 35px;
+    }
+    .search>input {
+        height: 30px;
+    }
+    .search>img {
+        width: 30px;
+        height: 30px;
+    }
+
 </style>

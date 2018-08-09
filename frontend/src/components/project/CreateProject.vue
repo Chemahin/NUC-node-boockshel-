@@ -97,4 +97,18 @@
         border-bottom: 1px solid #e4e4e4;
         margin-bottom: 15px;
     }
+    .searchRes {
+        margin-top: 2%;
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+    }
+    .searchRes>div {
+        margin: 0;
+        padding: 1%;
+        border: 1px solid lightgrey;
+        cursor: pointer;
+        border-radius: 2px;
+        margin-bottom: 2%;
+    }
 </style>
