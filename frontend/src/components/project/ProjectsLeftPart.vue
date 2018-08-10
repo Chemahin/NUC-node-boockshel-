@@ -6,13 +6,18 @@
                     Существующие проекты
                 </div>
                 <div class="col-xl-6 col-lg-12 search">
-                    <input type="text" class="form-control " id="search" placeholder="Поиск проекта"> 
+                    <input type="text" class="form-control " id="search" placeholder="Поиск проекта" v-model="search"> 
                     <img src="../../assets/search-icon.png" alt="search-icon">
                 </div>
             </div>
         </div>
+        <div class="btn-create-proj">
+            <router-link to="/projects/create">
+                <button>СОЗДАТЬ НОВЫЙ ПРОЕКТ</button>
+            </router-link>
+        </div>
         
-        <div v-for="project in resultsProjectList" class="project-item card">
+        <div v-for="project in filterMembers" class="project-item card">
             <div class="card-body">
                 <h2 class="card-title breadcrumb">{{ project.name }}</h2>
                 <div class="card-text">
@@ -30,11 +35,7 @@
                 
             </div>
         </div>
-        <div class="btn-create-proj">
-            <router-link to="/projects/create">
-                <button>СОЗДАТЬ НОВЫЙ ПРОЕКТ</button>
-            </router-link>
-        </div>
+        <div v-if="notFind"> <span>Не найдено</span> </div>
     </div>
 </template>
 
@@ -42,13 +43,55 @@
 import { mapGetters} from 'vuex';
 
 export default {
+    data() {
+        return {
+            search: "",
+            select: "",
+            notFind: false
+        }
+    },
     mounted() {
         this.$store.dispatch('getProjectListAction')
     },
+    
     computed: {
         ...mapGetters([
             'resultsProjectList'
-        ])
+        ]),
+        filterMembers: function() {
+            let filtered = this.resultsProjectList;
+            const search = this.search;
+            if (search) {
+                filtered = this.resultsProjectList.filter(
+                    m => {
+                        let hasMatches = false;
+                        for (const key in m) {
+                            const element = m[key];
+                            if (Array.isArray(element)) {
+                                for( let i = 0; i < element.length; i++) {
+                                    if(`${element[i]}`.toLowerCase().indexOf(search) > -1) {
+                                        hasMatches = true;
+                                        break;
+                                    }
+                                }
+                                continue;
+                            } else {
+                                if (`${element}`.toLowerCase().indexOf(search) > -1) {
+                                    hasMatches = true;
+                                    break;
+                                }
+                            }
+                            
+                        }
+                        return hasMatches;
+                    }
+                );
+            }
+
+            (filtered.length === 0) ? this.notFind = true : this.notFind = false;
+            return filtered;
+            
+        }
     }
 }
 
@@ -61,7 +104,6 @@ export default {
     .btn-create-proj {
         text-align: right;
         padding: 10px;
-        border-top: 1px solid #e4e4e4;
     }
     .btn-create-proj>a>button {
         background: #00a65a;

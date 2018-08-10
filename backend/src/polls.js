@@ -6,11 +6,11 @@ module.exports= [
         addedData: "04.08.2016",
         addedPersonName: "Евгения Беляева",
         project: [
-            "Имя проектa № 1",
-            "Имя проектa № 3"
+            "Имя проекта № 1",
+            "Имя проекта № 3"
         ],
         typeOfPoll: [
-            'face to face опрос'
+            "face to face опрос"
         ]
     },
     {
@@ -20,12 +20,12 @@ module.exports= [
         addedData: "14.03.2018",
         addedPersonName: "Стивен Джерард",
         project: [
-            "Имя проектa № 1",
-            "Имя проектa № 2",
-            "Имя проектa № 14",
+            "Имя проекта № 1",
+            "Имя проекта № 2",
+            "Имя проекта № 14",
         ],
         typeOfPoll: [
-            'web-опрос'
+            "web-опрос"
         ]
     },
     {
@@ -35,12 +35,12 @@ module.exports= [
         addedData: "12.12.2017",
         addedPersonName: "Еден Азар",
         project: [
-            "Имя проектa № 1",
-            "Имя проектa № 6",
-            "Имя проектa № 11"
+            "Имя проекта № 1",
+            "Имя проекта № 6",
+            "Имя проекта № 11"
         ],
         typeOfPoll: [
-            'телефонный опроc'
+            "телефонный опроc"
         ]
     },
     {
@@ -50,7 +50,7 @@ module.exports= [
         addedData: "04.08.2017",
         addedPersonName: "Садио Мане",
         project: [
-            "Имя проектa № 1"
+            "Имя проекта № 1"
         ],
         typeOfPoll: [
             'face to face опрос',
@@ -65,7 +65,7 @@ module.exports= [
         addedData: "12.12.2017",
         addedPersonName: "Еден Азар",
         project: [
-            "Имя проектa № 7"
+            "Имя проекта № 7"
         ],
         typeOfPoll: [
             'телефонный опроc',
@@ -79,10 +79,10 @@ module.exports= [
         addedData: "12.12.2017",
         addedPersonName: "Еден Азар",
         project: [
-            "Имя проектa № 10"
+            "Имя проекта № 10"
         ],
         typeOfPoll: [
-            'тweb-опрос'
+            'web-опрос'
         ]
     },
 ]

@@ -1,9 +1,22 @@
 <template>
     <div class="questions-part">
-        <div class="title">
-            Существующие вопросы
+        <div class="containrer-fluid title">
+            <div class="row search-wrap">
+                <div class="col-xl-6 col-lg-12">
+                    Существующие вопросы
+                </div>
+                <div class="col-xl-6 col-lg-12 search">
+                    <input type="text" class="form-control " id="search" placeholder="Поиск вопроса" v-model="search"> 
+                    <img src="../../assets/search-icon.png" alt="search-icon">
+                </div>
+            </div>
         </div>
-        <div class="card questions-item" v-for="question in resultsQuestionList">
+        <div class="btn-create-question">
+            <router-link to="/questions/create">
+                <button>СОЗДАТЬ НОВЫЙ ВОПРОС</button>
+            </router-link>
+        </div>
+        <div class="card questions-item" v-for="question in filterMembers">
             <div class="card-body">
                 <h2 class="card-title breadcrumb">{{ question.name }}</h2>
                 <div class="card-text">
@@ -22,11 +35,7 @@
                 
             </div>
         </div>
-        <div class="btn-create-question">
-            <router-link to="/questions/create">
-                <button>СОЗДАТЬ НОВЫЙ ВОПРОС</button>
-            </router-link>
-        </div>
+        <div v-if="notFind"> <span>Не найдено</span> </div>
     </div>
 </template>
 
@@ -34,13 +43,54 @@
 import { mapGetters} from 'vuex';
 
 export default {
+    data() {
+        return {
+            search: "",
+            select: "",
+            notFind: false
+        }
+    },
     mounted() {
         this.$store.dispatch('getQuestionListAction')
     },
     computed: {
         ...mapGetters([
             'resultsQuestionList'
-        ])
+        ]),
+        filterMembers: function() {
+            let filtered = this.resultsQuestionList;
+            const search = this.search;
+            if (search) {
+                filtered = this.resultsQuestionList.filter(
+                    m => {
+                        let hasMatches = false;
+                        for (const key in m) {
+                            const element = m[key];
+                            if (Array.isArray(element)) {
+                                for( let i = 0; i < element.length; i++) {
+                                    if(`${element[i]}`.toLowerCase().indexOf(search) > -1) {
+                                        hasMatches = true;
+                                        break;
+                                    }
+                                }
+                                continue;
+                            } else {
+                                if (`${element}`.toLowerCase().indexOf(search) > -1) {
+                                    hasMatches = true;
+                                    break;
+                                }
+                            }
+                            
+                        }
+                        return hasMatches;
+                    }
+                );
+            }
+
+            (filtered.length === 0) ? this.notFind = true : this.notFind = false;
+            return filtered;
+            
+        }
     }
 }
 
@@ -53,7 +103,6 @@ export default {
     .btn-create-question {
         text-align: right;
         padding: 10px;
-        border-top: 1px solid #e4e4e4;
     }
     .btn-create-question>a>button {
         background: #00a65a;
@@ -69,7 +118,7 @@ export default {
     }
     .questions-item {
         cursor: pointer;
-        margin-bottom: 15px;
+        border: 1px solid #e4e4e4;
     }
     .questions-item:hover {
         box-shadow: 3px 7px 9px #f1f1f1;
@@ -91,5 +140,16 @@ export default {
     }
     .questions-proj>p{
         margin: 2px;
+    }
+    .search{
+        display: flex;
+        height: 35px;
+    }
+    .search>input {
+        height: 30px;
+    }
+    .search>img {
+        width: 30px;
+        height: 30px;
     }
 </style>
