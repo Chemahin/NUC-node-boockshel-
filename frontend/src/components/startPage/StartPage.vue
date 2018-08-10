@@ -1,8 +1,5 @@
 <template>
-    <div @click="nameTest" class="row">
-      <div class="col-xs-12">
-        <h2>Добро пожаловать в НАЦ</h2>
-      </div>
+    <div @click="nameTest">
     </div>
 </template>
 
