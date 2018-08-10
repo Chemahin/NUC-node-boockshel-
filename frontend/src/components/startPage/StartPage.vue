@@ -1,5 +1,9 @@
 <template>
-    <div @click="nameTest"> Добро пожаловать в НАЦ </div>
+    <div @click="nameTest" class="row">
+      <div class="col-xs-12">
+        <h2>Добро пожаловать в НАЦ</h2>
+      </div>
+    </div>
 </template>
 
 <script>
