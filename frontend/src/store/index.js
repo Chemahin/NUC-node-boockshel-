@@ -28,11 +28,11 @@ export default new Vuex.Store({
         }
 
     },
-    
+
     actions: {
         getProjectListAction({ commit, state }) {
             axios
-                .get('http://localhost:8000/projects')
+                .get('/api/projects')
                 .then(response=> {
                     commit('set', { type: 'projects', items: response.data })
                     state.projects=response.data
@@ -40,7 +40,7 @@ export default new Vuex.Store({
         },
         getPollListAction({ commit, state }) {
             axios
-                .get('http://localhost:8000/polls')
+                .get('/api/polls')
                 .then(response=> {
                     commit('set', { type: 'polls', items: response.data })
                     state.polls=response.data
@@ -48,7 +48,7 @@ export default new Vuex.Store({
         },
         getQuestionListAction({ commit, state }) {
             axios
-                .get('http://localhost:8000/questions')
+                .get('/api/questions')
                 .then(response=> {
                     commit('set', { type: 'questions', items: response.data })
                     state.questions=response.data
