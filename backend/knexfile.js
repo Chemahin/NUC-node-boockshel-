@@ -4,9 +4,9 @@ module.exports = {
         connection: {
             port: '5432',
             host: 'localhost',
-            database: 'test_db',
-            user: 'test',
-            password: 'test',
+            user     : 'nac_test',
+            password : 'nac_test',
+            database : 'nac',
         },
         migrations: {
             directory: './migrations',

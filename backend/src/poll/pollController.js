@@ -1,8 +1,14 @@
-var polls = require("./../polls");
+var Polls = require("./pollModel");
 
 module.exports={
 
     list(req, res, next) {
-        res.json(polls);
+        new Polls().fetchAll()
+        .then(function(polls) {
+            res.send(polls.toJSON());
+        }).catch(function(error) {
+            console.log(error);
+            res.send('An error occured');
+        });
     }
 }
