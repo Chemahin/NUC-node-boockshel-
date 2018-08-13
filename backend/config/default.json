@@ -1,11 +1,11 @@
 {
   "appConfig": {
     "dbConfig": {
-      "host": "localhost",
-      "port": 5432,
-      "database": "test_db",
-      "user": "test",
-      "password": "test"
+        "port": 5432,
+        "host": "localhost",
+        "user"     : "nac_test",
+        "password" : "nac_test",
+        "database" : "nac"
     },
     "credit": {
       "initialLimit": 100,
