@@ -2,7 +2,7 @@ exports.up = function(knex) {
     return knex.schema
         .createTable('polls', (table) => {
             table.increments('id').primary();
-            table.string('name_of_project');
+            table.string('name_of_poll');
             table.string('descriptions');
             table.string('file_url');
             table.string('language');

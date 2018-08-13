@@ -18,21 +18,12 @@
         </div>
         <div class="card questions-item" v-for="question in filterMembers">
             <div class="card-body">
-                <h2 class="card-title breadcrumb">{{ question.name }}</h2>
                 <div class="card-text">
-                    <p>вопрос создан: <span>{{ question.createdData }}</span></p>
-                    <p>создатель вопроса: <span>{{ question.createdPersonName }}</span></p>
+                    <p>тело вопроса: <span>{{ question.body_of_question }}</span></p>
+                    <p>версия вопроса: <span>{{ question.version }}</span></p>
                 
-                    <p>вопрос редактирован: <span>{{ question.addedData }}</span></p>
-                    <p>Вопрос редактировал: <span>{{ question.addedPersonName }}</span></p>
-                
-                <div class="questions-proj">
-                    <p> Тег вопроса: <span v-for="tQuestion in question.tagOfquestion" class="questions-question-span">{{ tQuestion }}</span></p>
-                    <p> Принадлежность к анкете: <span v-for="question in question.poll" class="questions-question-span">{{ question }}</span></p>
-                    
-                </div>
-                </div>
-                
+                    <p>тип ответа: <span>{{ question.type_of_answer }}</span></p>
+                </div>    
             </div>
         </div>
         <div v-if="notFind"> <span>Не найдено</span> </div>
@@ -119,6 +110,7 @@ export default {
     .questions-item {
         cursor: pointer;
         border: 1px solid #e4e4e4;
+        margin-bottom: 10px;
     }
     .questions-item:hover {
         box-shadow: 3px 7px 9px #f1f1f1;

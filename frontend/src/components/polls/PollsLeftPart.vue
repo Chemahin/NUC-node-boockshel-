@@ -20,19 +20,15 @@
         <div>
         <div class="card polls-item" v-for="poll in filterMembers">
             <div class="card-body">
-                <h2 class="card-title breadcrumb">{{ poll.name }}</h2>
+                <h2 class="card-title breadcrumb">{{ poll.name_of_project }}</h2>
                 <div class="card-text">
-                    <p>анкета создана: <span>{{ poll.createdData }}</span></p>
-                    <p>создатель анкеты: <span>{{ poll.createdPersonName }}</span></p>
+                    <p>анкету создал: <span>{{ poll.createdData }}</span></p>
+                    <p>тип анкеты: <span>{{ poll.determination_of }}</span></p>
                 
-                    <p>анкета редактирована: <span>{{ poll.addedData }}</span></p>
-                    <p>анкету редактировал: <span>{{ poll.addedPersonName }}</span></p>
+                    <p>наименование анкеты: <span>{{ poll.descriptions }}</span></p>
+                    <p>язык анкеты: <span>{{ poll.language }}</span></p>
+                    <p>версия анкеты: <span>{{ poll.version }}</span></p>
                 
-                <div class="polls-proj">
-                    <p> Принадлежность к проекту: <span v-for="poll in poll.project" class="polls-poll-span">{{ poll }}</span></p>
-                    <p> Тип анкеты: <span v-for="tPoll in poll.typeOfPoll" class="polls-poll-span">{{ tPoll }}</span></p>
-                    
-                </div>
                 </div>
                 
             </div>

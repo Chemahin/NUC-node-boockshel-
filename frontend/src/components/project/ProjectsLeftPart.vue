@@ -19,16 +19,13 @@
         
         <div v-for="project in filterMembers" class="project-item card">
             <div class="card-body">
-                <h2 class="card-title breadcrumb">{{ project.name }}</h2>
+                <h2 class="card-title breadcrumb">{{ project.name_of_project }}</h2>
                 <div class="card-text">
-                    <p>проект создан: <span>{{ project.createdData }}</span></p>
-                    <p>создатель проекта: <span>{{ project.createdPersonName }}</span></p>
-                
-                    <p>проект редактирован: <span>{{ project.addedData }}</span></p>
-                    <p>проект редактировал: <span>{{ project.addedPersonName }}</span></p>
+                    <p>проект создал: <span>{{ project.author }}</span></p>
+                    <p>исполнитель: <span>{{ project.executant }}</span></p>
                 
                     <div class="project-polls">
-                        <p> Анкеты: <span v-for="poll in project.polls" class="project-poll-span">{{ poll }}</span></p>
+                        <p> Методы опроса: <span>{{ project.survey_methods }}</span></p>
                         
                     </div>
                 </div>
