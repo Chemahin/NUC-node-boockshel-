@@ -1,7 +1,7 @@
 <template>
     <div class="header-panel">
         <div class="header-logo">NAC</div>
-        <div class="header-content">контент</div>
+        <div class="header-content">Пользователь</div>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        
+
     }
     .header-logo {
         width: 222px;

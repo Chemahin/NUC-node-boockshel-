@@ -1,5 +1,6 @@
 <template>
-    <div @click="nameTest">Добро пожаловать в  NAC </div>
+    <div @click="nameTest">
+    </div>
 </template>
 
 <script>
@@ -13,5 +14,5 @@
 </script>
 
 <style>
-    
+
 </style>
