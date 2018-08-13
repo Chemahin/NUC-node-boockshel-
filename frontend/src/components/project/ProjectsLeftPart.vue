@@ -139,9 +139,6 @@ export default {
         font-size: 15px;
         border-radius: 3px;
     }
-    .search-wrap {
-        width: 100%;
-    }
     .search{
         display: flex;
         height: 35px;

@@ -28,7 +28,7 @@
     .nav-panel {
         width: 200px;
         min-height: 100vh;
-        background: #27343a;
+        background: #222d32;
     }
     .nav-item {
         color: #b8c7ce;
