@@ -6,13 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node app.js",
-    "migrate": "node_modules/.bin/knex migrate:latest"
+    "migrate": "node_modules/.bin/knex migrate:latest",
+    "migrate_rollback": "node_modules/.bin/knex migrate:rollback"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "bookshelf": "^0.13.3",
+    "config": "^2.0.1",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "knex": "^0.13.0",
